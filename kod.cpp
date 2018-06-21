@@ -163,3 +163,36 @@ char * check_min(int min) // описание ф-кции check_min
 	}
 	return str_min; // возв. знач. str_min
 }
+
+void units_f(int part_2, char * str_un) // описание ф-кции units_f
+{
+	if (part_2 == 1) // если выпол. условие, то добав. "одна"
+	{
+		strcat(str_un, "одна"); // добав. "одна"
+		return; // заверш. ф-кции
+	}
+	if (part_2 == 2) { // если выпол. условие, то добав. "двi"
+		strcat(str_un, "двi"); // добав. "двi"
+		return; // заверш. ф-кции
+	}
+	strcat(str_un, units[part_2]); // если не выпол. ни одно из условий, то просто объед. str_un и units[part_2]
+}
+
+void teens(int part_2, char * str_t) // // описание ф-кции teens
+{
+	strcpy(str_t, units[part_2]); // копирование units[part_2] в str_t
+	strcat(str_t, "надц€ть"); // добав. приставки "надц€ть" 
+	switch (part_2) // если 2 цифра подходит одному из case-ов, то копируем соотв. строки
+	{
+	case 1: strcpy(str_t, "одинадц€ть"); break;
+	case 4: strcpy(str_t, "чотирнадц€ть"); break;
+	case 5: strcpy(str_t, "п'€тнадц€ть"); break;
+	case 6: strcpy(str_t, "шiстнадц€ть"); break;
+	case 9: strcpy(str_t, "дев'€тнадц€ть"); break;
+	}
+}
+
+void decades(int part_1, char * str_dec) // описание ф-ции decades
+{
+	strcpy(str_dec, dec[part_1 - 1]); // копирование в str_dec dec[part_1-1]
+}
