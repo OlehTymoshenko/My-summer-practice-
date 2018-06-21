@@ -196,3 +196,27 @@ void decades(int part_1, char * str_dec) // описание ф-ции decades
 {
 	strcpy(str_dec, dec[part_1 - 1]); // копирование в str_dec dec[part_1-1]
 }
+void dev_num(int * part_1, int * part_2, int num) // описание ф-ции dev_num
+{
+	*part_1 = num / 10; // получение первой цифры числа
+	*part_2 = num % 10; // получение второй цифры числа
+}
+void form_hour(char * str_form, int part_2) // описание ф-кции form_hour
+{
+	switch (part_2) // по второй цифре числа опред. нужная форма слова "година"
+	{
+	case 0:case 5:case 6:case 7:case 8: case 9: strcat(str_form, " годин"); break; // добав. "годин"
+	case 1: strcat(str_form, " година"); break; // добав. "година"
+	case 2:case 3:case 4: strcat(str_form, " години"); break; // добав. "години"
+	}
+}
+
+void form_min(char * str_form, int part_2) // описание ф-кции form_min
+{
+	switch (part_2) // по второй цифре числа опред. нужная форма слова "хвилина" 
+	{
+	case 0:case 5:case 6:case 7:case 8: case 9: strcat(str_form, " хвилин"); break;
+	case 1: strcat(str_form, " хвилина"); break;
+	case 2:case 3:case 4: strcat(str_form, " хвилини"); break;
+	}
+}
