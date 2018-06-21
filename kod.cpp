@@ -1,7 +1,7 @@
 /**
 * @file   Summer practice.cpp
 * @author Тимошенко О.О., гр. 515Б
-* @date   18 июня 2018
+* @date   22 июня 2018
 * @brief  Летняя практика
 */
 
@@ -91,8 +91,7 @@ int main()
 	char * str_hour_m, *str_min_m; // указ. для хран. возв. знач. ф-ций check_h, check_min
 	setlocale(LC_ALL, "ukr"); // подкл. укр. языка
 	int part_hour, part_min, choice; // part_hour-часовая состав. времени, part_min-минутная сост. времени, choice-перем. для хран. выбор. польз.
-	while (1) // безк. цикл
-	{
+	while (1){ // безк. цикл 
 		printf("Введiть час числами(у форматi гг хх):");
 		scanf_s("%d%d", &part_hour, &part_min); // ввод времени
 		str_hour = (char*)calloc(MAX_LEN, sizeof(char)); // выдел. памяти для str_hour
@@ -123,8 +122,7 @@ char * check_h(int hour)  // описание ф-кции check_h
 	if (num_1 == 0) units_f(num_2, str_hour); // если первая цифра = 0, то вызов ф-кцию units_f
 	if (num_1 == 1 && num_2 != 0) teens(num_2, str_hour); // при выпол. условий вызов ф-кции teens
 	if (num_1 != 0 && num_2 == 0) decades(num_1, str_hour); // при выпол. условий вызов ф-кции decades
-	if (num_1 > 1 && num_2 != 0) // при выпол. условий вызов ф-кций decades и units_f
-	{
+	if (num_1 > 1 && num_2 != 0) { // при выпол. условий вызов ф-кций decades и units_f
 		decades(num_1, str_hour);
 		strcat(str_hour, " "); // добав. пробела в строку
 		units_f(num_2, str_hour);
@@ -149,8 +147,7 @@ char * check_min(int min) // описание ф-кции check_min
 	if (num_1 == 0) units_f(num_2, str_min); // если первая цифра = 0, то вызов ф-кцию units_f
 	if (num_1 == 1 && num_2 != 0) teens(num_2, str_min); // при выпол. условий вызов ф-кции teens
 	if (num_1 != 0 && num_2 == 0) decades(num_1, str_min); // при выпол. условий вызов ф-кции decades
-	if (num_1 > 1 && num_2 != 0) // при выпол. условий вызов ф-кций decades и units_f
-	{
+	if (num_1 > 1 && num_2 != 0) { // при выпол. условий вызов ф-кций decades и units_f
 		decades(num_1, str_min);
 		strcat(str_min, " "); // добав. пробела в строку
 		units_f(num_2, str_min);
@@ -166,8 +163,7 @@ char * check_min(int min) // описание ф-кции check_min
 
 void units_f(int part_2, char * str_un) // описание ф-кции units_f
 {
-	if (part_2 == 1) // если выпол. условие, то добав. "одна"
-	{
+	if (part_2 == 1) { // если выпол. условие, то добав. "одна"
 		strcat(str_un, "одна"); // добав. "одна"
 		return; // заверш. ф-кции
 	}
