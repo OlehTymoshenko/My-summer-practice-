@@ -111,3 +111,55 @@ int main()
 	}
 	return 0; // заверш. программы
 }
+
+char * check_h(int hour)  // описание ф-кции check_h
+{
+	int num_1, num_2; // перва€ и втора€ часть числа
+	if (hour < 0 || hour>23) { // если часы меньше 0 или больше 23, то заверш. ф-кцию
+		printf("¬ведений час невiрний\n");
+		return NULL; // возв. NULL
+	}
+	dev_num(&num_1, &num_2, hour); // вызов ф-кции разд. числа на 2 цифры
+	if (num_1 == 0) units_f(num_2, str_hour); // если перва€ цифра = 0, то вызов ф-кцию units_f
+	if (num_1 == 1 && num_2 != 0) teens(num_2, str_hour); // при выпол. условий вызов ф-кции teens
+	if (num_1 != 0 && num_2 == 0) decades(num_1, str_hour); // при выпол. условий вызов ф-кции decades
+	if (num_1 > 1 && num_2 != 0) // при выпол. условий вызов ф-кций decades и units_f
+	{
+		decades(num_1, str_hour);
+		strcat(str_hour, " "); // добав. пробела в строку
+		units_f(num_2, str_hour);
+	}
+	if (hour > 10 && hour < 20) { // если час больше 10 и меньше 20, то добав. к строку "годин"
+		strcat(str_hour, " годин"); // добавление "годин"
+	}
+	else { // если hour не больше 10 или больше 20, то
+		form_hour(str_hour, num_2); // вызов ф-кции form_hour
+	}
+	return str_hour; // возв. знач. str_hour
+}
+
+char * check_min(int min) // описание ф-кции check_min
+{
+	int num_1, num_2; // перва€ и втора€ часть числа
+	if (min < 0 || min>59) { // если минуты меньше 0 или больше 59, то заверш. ф-кцию
+		printf("¬ведений час невiрний\n");
+		return NULL; // возв. NULL
+	}
+	dev_num(&num_1, &num_2, min); // вызов ф-кции разд. числа на 2 цифры
+	if (num_1 == 0) units_f(num_2, str_min); // если перва€ цифра = 0, то вызов ф-кцию units_f
+	if (num_1 == 1 && num_2 != 0) teens(num_2, str_min); // при выпол. условий вызов ф-кции teens
+	if (num_1 != 0 && num_2 == 0) decades(num_1, str_min); // при выпол. условий вызов ф-кции decades
+	if (num_1 > 1 && num_2 != 0) // при выпол. условий вызов ф-кций decades и units_f
+	{
+		decades(num_1, str_min);
+		strcat(str_min, " "); // добав. пробела в строку
+		units_f(num_2, str_min);
+	}
+	if (min > 10 && min < 20) { // если минуты больше 10 и меньше 20, то добав. к строку "хвилин"
+		strcat(str_min, " хвилин"); // добавление "хвилин"
+	}
+	else {  // если min не больше 10 или больше 20, то
+		form_min(str_min, num_2); // вызов ф-кции form_min
+	}
+	return str_min; // возв. знач. str_min
+}
