@@ -41,19 +41,19 @@ void dev_num(int * part_1, int * part_2, int num);
 * перевод из цифры в буквы для цифр 0-9
 *
 * @param part_2 - вторая цифра числа
-* @param *str_h - строка для сохрания цифры буквами
+* @param *str_un - строка для сохрания цифры буквами
 * @return ничего (тип данных ф-кции void)
 */
-void units_f(int part_2, char * str_h);
+void units_f(int part_2, char * str_un);
 
 /**
 * перевод из цифры в буквы для цифр 11-19
 *
 * @param part_2 - вторая цифра числа
-* @param *str_hour - строка для сохрания цифры буквами
+* @param *str_t - строка для сохрания цифры буквами
 * @return ничего (тип данных ф-кции void)
 */
-void teens(int num_2, char *  str_hour);
+void teens(int part_2, char * str_t);
 
 /**
 * перевод из цифры в буквы для цифр 10, 20, 30, 40, 50
